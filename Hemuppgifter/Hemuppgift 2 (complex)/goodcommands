@@ -3,3 +3,9 @@ javac -cp /usr/share/java/junit4.jar *.java
 
 ## Run JUnit test
 java -cp /usr/share/java/junit4.jar:. org.junit.runner.JUnitCore HeltalTest
+
+## Push git
+git push origin master
+
+## Add repository to remote
+git remote set-url origin git@github.com:hassanbot/DD1332.git
