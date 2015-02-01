@@ -82,6 +82,7 @@ public class Heltal {
 	return new Heltal(this.value / rhs.value);
     }
 
+    // New methods (by Martin Törnqvist)
     /**
      * Adds this Heltal to a Komplex rhs
      * @param rhs

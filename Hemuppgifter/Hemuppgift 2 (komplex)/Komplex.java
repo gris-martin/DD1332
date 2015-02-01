@@ -7,14 +7,14 @@
 	 Komplex d = new Komplex(3,4);
 	 Komplex noll = new Komplex();
 	 Heltal h = new Heltal(5);
-	 System.out.println(c.add(d));
-	 System.out.println(d.sub(c));
-	 System.out.println(d.mul(c));
-	 System.out.println(c.div(d));
-	 System.out.println(noll.sub(c));
-	 System.out.println(c.conj());
-	 System.out.println(c.addHeltal(h));
-	 System.out.println(h.addKomplex(c));
+	 System.out.println("("+c+") + ("+d+") = (" + c.add(d) + ")");
+	 System.out.println("("+d+") - ("+c+") = (" + d.sub(c) + ")");
+	 System.out.println("("+d+") * ("+c+") = (" + d.mul(c) + ")");
+	 System.out.println("("+c+") / ("+d+") = (" + c.div(d) + ")");
+	 System.out.println("("+noll+") - ("+c+") = (" + noll.sub(c) + ")");
+	 System.out.println("Conjugate of ("+c+") = ("+c.conj()+")");
+	 System.out.println("("+c+") + "+h+" = ("+c.addHeltal(h)+")");
+	 System.out.println(h+" + ("+c+") = ("+c.addHeltal(h)+")");
 	 
      }
 
@@ -99,6 +99,7 @@
 
      }
 
+     // New methods (by Martin Törnqvist)
      /**
       * Conjugates this Komplex.
       * @param

@@ -12,9 +12,7 @@ public class HeltalTest {
 	Heltal h = new Heltal(3);
 	Heltal h2 = new Heltal(3);
 	assertNotNull(h);
-	assertNotNull(h2);
-	
-	
+	assertNotNull(h2);	
     }
     
     @Test
@@ -26,7 +24,6 @@ public class HeltalTest {
 	assertNotNull(h2);
 	Heltal h3 = new Heltal();
 	assertEquals(h3.toString(), "0");
-	
     }
     
     @Test

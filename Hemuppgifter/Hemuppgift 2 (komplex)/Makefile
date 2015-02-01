@@ -1,7 +1,7 @@
 JAVAC=javac
 sources = $(wildcard *.java)
 classes = $(sources:.java=.class)
-testclass = HeltalTest
+testclass = KomplexTest
 junit = -cp /usr/share/java/junit4.jar:
 junitcore = org.junit.runner.JUnitCore
 
