@@ -20,17 +20,6 @@ public class Heltal {
 	this(0);
     }
     
-    public static void main(String args[]) {
-	System.out.println(2/3*3.0);
-	Heltal a = new Heltal(2L);
-	Heltal b = new Heltal(3L);
-	System.out.println(a.add(b));
-	System.out.println(a.mul(b));
-	System.out.println(a.div(b));
-	System.out.println(b.sub(a));
-	System.out.println(12345+5432l);
-    }
-    
     /**
      * returns 
      */
@@ -82,14 +71,11 @@ public class Heltal {
 	return new Heltal(this.value / rhs.value);
     }
 
-    // New methods (by Martin Törnqvist)
+    // Nya metoder (av Martin Törnqvist)
     /**
-     * Adds this Heltal to a Komplex rhs
-     * @param rhs
-     * @return
+     * Adderar ett Komplex till ett Heltal
      */
-    public Komplex addKomplex(Komplex rhs){
+    public Komplex add(Komplex rhs){
 	return rhs.add(new Komplex(this));
-    }
-    
+    }   
 }

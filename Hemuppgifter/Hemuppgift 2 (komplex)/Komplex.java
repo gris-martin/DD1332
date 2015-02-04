@@ -2,28 +2,7 @@
      private double re;
      private double im;
 
-     public static void main(String[] args) {
-	 Komplex c = new Komplex(1,2);
-	 Komplex d = new Komplex(3,4);
-	 Komplex noll = new Komplex();
-	 Heltal h = new Heltal(5);
-	 System.out.println("("+c+") + ("+d+") = (" + c.add(d) + ")");
-	 System.out.println("("+d+") - ("+c+") = (" + d.sub(c) + ")");
-	 System.out.println("("+d+") * ("+c+") = (" + d.mul(c) + ")");
-	 System.out.println("("+c+") / ("+d+") = (" + c.div(d) + ")");
-	 System.out.println("("+noll+") - ("+c+") = (" + noll.sub(c) + ")");
-	 System.out.println("Conjugate of ("+c+") = ("+c.conj()+")");
-	 System.out.println("("+c+") + "+h+" = ("+c.addHeltal(h)+")");
-	 System.out.println(h+" + ("+c+") = ("+c.addHeltal(h)+")");
-	 
-     }
-
-     /**
-      * 
-      */
-     public String toString() {
-	 return "" + this.re + (this.im>=0?" + ":" - ") + Math.abs(this.im) + "i";
-     }
+n   
      /**
       * Create a new Komplex object.
       * @param re The real part of the number
@@ -55,6 +34,13 @@
       */
      public Komplex(Heltal a) {
 	 this((double)a.getValue());
+     }
+
+     /**
+      * 
+      */
+     public String toString() {
+	 return "" + this.re + (this.im>=0?" + ":" - ") + Math.abs(this.im) + "i";
      }
 
      /**
@@ -99,23 +85,18 @@
 
      }
 
-     // New methods (by Martin Törnqvist)
+     // Nya metoder (av Martin Törnqvist)
      /**
-      * Conjugates this Komplex.
-      * @param
-      * @return
+      * Konjugerar komplextalet.
       */
      public Komplex conj() {
      	 return new Komplex(this.re, 0-this.im);
      }
 
      /**
-      * Adds this Komplex with a Heltal rhs.
-      * @param rhs
-      * @return
+      * Adderar ett Heltal till ett Komplex.
       */
-     public Komplex addHeltal(Heltal rhs) {
+     public Komplex add(Heltal rhs) {
 	 return new Komplex(this.re+rhs.getValue(), this.im);
      }
-     
  }
