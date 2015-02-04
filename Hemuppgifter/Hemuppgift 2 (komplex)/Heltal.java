@@ -1,3 +1,5 @@
+//Martin Törnqvist
+
 /**
  * This class represents whole numbers.
  * @author dicander
