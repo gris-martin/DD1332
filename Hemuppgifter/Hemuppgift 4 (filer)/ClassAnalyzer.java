@@ -21,16 +21,61 @@ class ClassAnalyzer
 	    System.exit(1);
 	}
 
-	Pattern pattern = Pattern.compile("public\\s\\w+\\s\\w+[(]\\w*\\s*\\w*[){]");
+
+	String classRegex = "(\\w+\\s){0,2}class\\s\\w+[{]";
+	String attributeRegex = "(\\w+\\s){0,2}\\w+\\s\\w+(;|\\s?=\\s?\\w+;)";
+	String methodRegex = "(\\w+\\s){0,2}\\w+[(](\\w+(\\[\\])?\\s\\w+,\\s)*(\\w+(\\[\\])?\\s\\w+)?[){]";
+
+	Pattern classPattern = Pattern.compile(classRegex);
+	Pattern attributePattern = Pattern.compile(attributeRegex);
+	Pattern methodPattern = Pattern.compile(methodRegex);
+
 	Matcher matcher;
 	String currentLine;
-	
+	int nAttributes = 0;
+	int nMethods = 0;
+
+	//Sök igenom varje rad
 	while(sc.hasNext()){
 	    currentLine = sc.nextLine();
-	    matcher = pattern.matcher(currentLine);
-	    if(matcher.find())
-		System.out.println(currentLine);
+
+	    //Kolla efter klass
+	    if(classPattern.matcher(currentLine).find()){
+	 
+		//Kolla igenom klassen
+		while(sc.hasNext()){
+		    currentLine = sc.nextLine();
+		    
+		    //Kolla efter attributmatchning
+		    if(attributePattern.matcher(currentLine).find()){
+			nAttributes++;
+		    }
+
+		    //Kolla eftermetodmatchning
+		    else if (methodPattern.matcher(currentLine).find()){
+			nMethods++;
+			System.out.println(currentLine);
+			currentLine = sc.nextLine();
+
+			int nBrackets = 0;
+			while (((!Pattern.compile("[}]").matcher(currentLine).find())||nBrackets>0) 
+			       && sc.hasNext()){
+			    if(Pattern.compile("[{]").matcher(currentLine).find())
+			       nBrackets++;
+			    else if (Pattern.compile("[}]").matcher(currentLine).find())
+				nBrackets--;
+			    currentLine = sc.nextLine();
+			}
+		    }
+			    
+		}
+	
+	    }
+
 	}
+
+	System.out.println("Number of attributes: " + nAttributes);
+	System.out.println("Number of methods: " + nMethods);
 	    
     }
 }
