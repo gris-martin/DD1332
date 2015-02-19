@@ -1,4 +1,3 @@
-//Exempel på hur klassen Complex kan se ut
 public class Complex{
     private int re;
     private int im;
