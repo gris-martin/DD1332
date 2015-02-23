@@ -3,6 +3,7 @@ import java.util.Random;
 class Tree
     {
 	private Node root;
+
 	public Tree(){
 	    root = null;
 	}
@@ -22,7 +23,7 @@ class Tree
 		pointer.right = put(value, pointer.right);
 	    }
 	    else{
-		System.out.println(value + " finns redan i trädet");
+		//System.out.println(value + " finns redan i trädet");
 	    }
 	    return pointer;
 	    		     	    
@@ -40,6 +41,24 @@ class Tree
 	public void writeTree(){
 	    writeTree(root);
 	}
+
+	public int exist(int value){
+	    if (exist(value, root))
+		return 1;
+	    else
+		return 0;
+	}
+
+	public boolean exist(int value, Node pointer){
+	    if (pointer == null)
+		return false;
+	    else if (value == pointer.value)
+		return true;
+	    else if (value < pointer.value)
+		return exist(value, pointer.left);
+	    else 
+		return exist(value, pointer.right);
+	}
 	
 
 	public static void main(String args[])
@@ -47,12 +66,15 @@ class Tree
 
 	    Tree srcTree = new Tree();
 	    Random rand = new Random();
-	    
-	    for (int i = 0; i < 100; i++){
+	    int a = 0;
+	    for (int i = 0; i < 10; i++){
 		srcTree.put(rand.nextInt(20)+1);
 	    }
 
+	    
 	    srcTree.writeTree();
+	    System.out.println("\n" + srcTree.exist(5));
+	    
 	    
 	}
 
