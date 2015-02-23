@@ -1,6 +1,8 @@
+import java.util.*
+
 public class Complex{
-    private int re;
     private int im;
+    private int re;
     
     public Complex(int re, int im){
 	this.re = re;
@@ -20,6 +22,10 @@ public class Complex{
 	int b = im;
 	int c = h.re;
 	int d = h.im;
+
+	if (a < b){
+	    System.out.println("Hej");
+	}
 	return new Complex(a*c-b*d, b*c+a*d);
     }
     
