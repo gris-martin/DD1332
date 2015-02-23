@@ -50,11 +50,27 @@ class Tree
 	    return;
 	}
 
-	private void writeTree2(){
+	public void writeTree2(){
 	    writeTree2(root);
 	}
 	
+
+
+	private void writeTree3(Node pointer){
+	    if (pointer == null)
+		return;
+	    writeTree3(pointer.left);
+	    writeTree3(pointer.right);
+	    System.out.println(pointer.value);
+	    return;
+	}
+
+	public void writeTree3(){
+	    writeTree3(root);
+	}
+
 	
+
 	public static void main(String args[])
 	{
 
@@ -71,6 +87,11 @@ class Tree
 	    System.out.println("");
 
 	    srcTree.writeTree2();
+
+	    System.out.println("");
+
+	    srcTree.writeTree3();
 	    
 	}
+
 }
